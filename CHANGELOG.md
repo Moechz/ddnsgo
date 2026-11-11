@@ -2,6 +2,11 @@
 
 All notable user-visible changes to the ddns-go TOS application package.
 
+## 6.17.1-2 — 2026-11-12
+
+### Changed
+- Icon: replaced the letter monogram with a functional vector mark that describes what the app does (the upstream project does not publish a compliant SVG).
+
 ## 6.17.1-1 — 2026-11-11
 
 ### Added
