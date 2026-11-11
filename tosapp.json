@@ -1,0 +1,90 @@
+{
+  "app_id": "ddnsgodocker",
+  "title": "ddns-go",
+  "image": "jeessy/ddns-go:v6.17.1",
+  "repo_name": "ddnsgo",
+  "mode": "plain",
+  "container_port": 9876,
+  "category": [
+    "Utilities"
+  ],
+  "volumes": [
+    {
+      "host": "/Volume1/DockerAppData/ddnsgodocker/data",
+      "container": "/data"
+    }
+  ],
+  "env": {
+    "TZ": "Asia/Shanghai"
+  },
+  "auth": "Moechz",
+  "upstream_url": "",
+  "upstream_license": "",
+  "descript": "ddns-go packaged for TerraMaster TOS 7. It runs the official Docker Hub image inside a container on your NAS, keeps all of its data in an application data folder (so it survives restarts and updates), and is opened from its desktop icon.",
+  "release_note": "1. First release.",
+  "important": "First run: open the web UI and complete the initial setup. Data lives in /Volume1/DockerAppData/ddnsgodocker/ and survives restarts and updates. The container runs as uid 1000, so mounted folders must be readable by that user. Needs DockerEngine; configure a registry mirror if Docker Hub is unreachable. Back up the application data folder before uninstalling with data removal. Plain HTTP on the LAN.",
+  "probe": {
+    "user_in_image": "(root)",
+    "entrypoint": [
+      "/app/ddns-go"
+    ],
+    "cmd": [
+      "-l",
+      ":9876",
+      "-f",
+      "300"
+    ],
+    "exposed_ports": [
+      9876
+    ],
+    "declared_volumes": [],
+    "image_healthcheck": [],
+    "digest": "jeessy/ddns-go@sha256:7fdf2ac701261dd4bace2e4dbee1db77ae4f9c98453690108adac9794fe68547",
+    "architecture": "x86_64",
+    "platforms": [],
+    "http_client_in_image": "curl",
+    "trial_run": {
+      "ok": true,
+      "http_code": "307",
+      "state": "running",
+      "paths": [],
+      "host_port": 18000,
+      "log_tail": "2026/11/11 12:57:12 Listening on :9876",
+      "files_in_mounts": ""
+    },
+    "docker_hub": {},
+    "github": {}
+  },
+  "healthcheck": [
+    "CMD-SHELL",
+    "curl -s -o /dev/null http://127.0.0.1:9876/ || exit 1"
+  ],
+  "platform": "x86_64",
+  "user": "1000:1000",
+  "publisher": "Moechz",
+  "compose_project": "ddnsgodocker",
+  "github_repo": "ddnsgo",
+  "upstream_version": "6.17.1",
+  "release_tag_prefix": "v",
+  "version": "6.17.1-1",
+  "help": "https://github.com/Moechz/ddnsgo/issues",
+  "official": "https://github.com/Moechz/ddnsgo/issues",
+  "license": "see upstream",
+  "docker_socket": false,
+  "group_add": [],
+  "platforms": [
+    "x86_64",
+    "aarch64"
+  ],
+  "translations": {
+    "zh-cn": {
+      "descript": "动态 DNS 客户端，支持多家服务商与 Web 配置。",
+      "important": "首次使用请打开网页完成初始化。数据保存在 DockerAppData/ddnsgodocker，重启和升级不会丢失。容器以 uid 1000 运行，挂载目录需对该用户可读。需要 DockerEngine；Docker Hub 不可达时先配置镜像加速。卸载并删除数据前请备份。局域网内为 HTTP。"
+    },
+    "zh-hk": {
+      "descript": "动态 DNS 客户端，支持多家服务商与 Web 配置。",
+      "important": "首次使用請開啟網頁完成初始化。資料保存在 DockerAppData/ddnsgodocker，重新啟動和升級不會遺失。容器以 uid 1000 運行，掛載目錄需對該使用者可讀。需要 DockerEngine；Docker Hub 不可達時先設定鏡像加速。解除安裝並刪除資料前請備份。區域網路內為 HTTP。"
+    }
+  },
+  "host_port": 8065
+}
